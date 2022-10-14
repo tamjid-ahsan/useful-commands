@@ -1,2 +1,156 @@
-# useful-commands
- personal reference codes
+NOTE: 
+
+[1] Text inside <> refers to respective names
+
+[2] This is tested on a Windows 10 Pro machine using WSL2 (Windows Subsystem for Linux version 2) terminal of Ubuntu-20.04 Virtual Machine, git-bash version 2.30.0.windows.1, and Microsoft Visual Studio Code version 1.58.2.
+___
+___
+# Installing Environment Requirements
+
+If using pip: (must have valid txt file)
+```python
+pip install -r <requirements>.txt
+```
+If using conda:
+```python
+conda create --name <env_name> --file <requirements>.txt
+```
+> NOTE: Creating requirement file:
+```python
+# using pip
+pip freeze > <requirements_pip>.txt
+# using conda
+conda list --export > <requirements_conda>.txt
+```
+___
+
+# Environment management using Anaconda
+## Install saved env
+create new env from .yml
+```python
+conda env create -f <env_name>.yml
+```
+> NOTE: 
+
+create .yml
+```python
+# show conda list
+conda env list
+# activate env first
+conda activate <env>
+conda env export > <env>.yml --no-builds # os agnostic
+```
+OR
+```python
+conda env export > <env>.yml # os specific
+```
+Useful command:
+```python
+# Create a new environment named py35
+conda create --name py35
+# Activate the new environment to use it
+## WINDOWS: 
+conda activate py35
+## UNIX-like & macOS: 
+source activate py35
+```
+
+## Add kernel
+List all kernels available
+```python
+jupyter kernelspec list
+```
+
+Add kernel
+```python
+python -m ipykernel install --user --name <env_name> --display-name "<kernel_name>"
+```
+
+NOTE:
+
+Remove kernel
+```python
+jupyter kernelspec remove <kernel_name>
+```
+___
+___
+# Create gpu enabled `tensorflow` env  
+
+check requirements:
+```
+python --version
+conda --version
+```
+
+install anaconda and tensorflow:
+```
+conda create --name <NAME_OF_ENV> anaconda tensorflow-gpu
+```
+add kernel
+```
+python -m ipykernel install --user --name <NAME_OF_ENV> --display-name "<NAME_OF_KERNEL>"
+```
+
+verify:
+```
+conda activate <NAME_OF_ENV>
+```
+- python version
+```
+python --version
+```
+- tensorflow version:
+```
+python -c "import tensorflow as tf; print(tf.__version__)"
+```
+GPU:
+```
+python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+```
+___
+[<code>tensorflow</code> Compatibility](https://www.tensorflow.org/install/source#gpu) (GPU only) as of: OCT, 22.
+
+|        Version        | Python version |  Compiler |  Build tools | cuDNN | CUDA |
+|:---------------------:|:--------------:|:---------:|:------------:|:-----:|:----:|
+| tensorflow-2.9.0      | 3.7-3.10       | GCC 9.3.1 | Bazel 5.0.0  | 8.1   | 11.2 |
+| tensorflow-2.8.0      | 3.7-3.10       | GCC 7.3.1 | Bazel 4.2.1  | 8.1   | 11.2 |
+| tensorflow-2.7.0      | 3.7-3.9        | GCC 7.3.1 | Bazel 3.7.2  | 8.1   | 11.2 |
+| tensorflow-2.6.0      | 3.6-3.9        | GCC 7.3.1 | Bazel 3.7.2  | 8.1   | 11.2 |
+| tensorflow-2.5.0      | 3.6-3.9        | GCC 7.3.1 | Bazel 3.7.2  | 8.1   | 11.2 |
+| tensorflow-2.4.0      | 3.6-3.8        | GCC 7.3.1 | Bazel 3.1.0  | 8.0   | 11.0 |
+| tensorflow-2.3.0      | 3.5-3.8        | GCC 7.3.1 | Bazel 3.1.0  | 7.6   | 10.1 |
+| tensorflow-2.2.0      | 3.5-3.8        | GCC 7.3.1 | Bazel 2.0.0  | 7.6   | 10.1 |
+| tensorflow-2.1.0      | 2.7, 3.5-3.7   | GCC 7.3.1 | Bazel 0.27.1 | 7.6   | 10.1 |
+| tensorflow-2.0.0      | 2.7, 3.3-3.7   | GCC 7.3.1 | Bazel 0.26.1 | 7.4   | 10.0 |
+| tensorflow_gpu-1.15.0 | 2.7, 3.3-3.7   | GCC 7.3.1 | Bazel 0.26.1 | 7.4   | 10.0 |
+| tensorflow_gpu-1.14.0 | 2.7, 3.3-3.7   | GCC 4.8   | Bazel 0.24.1 | 7.4   | 10.0 |
+| tensorflow_gpu-1.13.1 | 2.7, 3.3-3.7   | GCC 4.8   | Bazel 0.19.2 | 7.4   | 10.0 |
+| tensorflow_gpu-1.12.0 | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.15.0 | 7     | 9    |
+| tensorflow_gpu-1.11.0 | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.15.0 | 7     | 9    |
+| tensorflow_gpu-1.10.0 | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.15.0 | 7     | 9    |
+| tensorflow_gpu-1.9.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.11.0 | 7     | 9    |
+| tensorflow_gpu-1.8.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.10.0 | 7     | 9    |
+| tensorflow_gpu-1.7.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.9.0  | 7     | 9    |
+| tensorflow_gpu-1.6.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.9.0  | 7     | 9    |
+| tensorflow_gpu-1.5.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.8.0  | 7     | 9    |
+| tensorflow_gpu-1.4.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.5.4  | 6     | 8    |
+| tensorflow_gpu-1.3.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.4.5  | 6     | 8    |
+| tensorflow_gpu-1.2.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.4.5  | 5.1   | 8    |
+| tensorflow_gpu-1.1.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.4.2  | 5.1   | 8    |
+| tensorflow_gpu-1.0.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.4.2  | 5.1   | 8    |
+
+
+Check compatibly of card: [GPU compatibility](https://developer.nvidia.com/cuda-gpus) | [Wiki](https://en.wikipedia.org/wiki/CUDA#GPUs_supported)
+
+___
+___
+# connect to a jupyter server running in the cloud
+
+> Coming Soon.
+
+___
+___
+
+DISCLAIMER: 
+
+Author does not take any responsibility if you manage to break your coding environment setup. But if that bad luck ever bestow upon you, don't feel hesitant to [contact](http://linkedin.com/in/tamjidahsan/).
