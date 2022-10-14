@@ -78,37 +78,37 @@ ___
 
 check requirements:
 ```
-python --version
-conda --version
+python --version && conda --version
 ```
 
 install anaconda and tensorflow:
 ```
 conda create --name <NAME_OF_ENV> anaconda tensorflow-gpu
 ```
-add kernel
+(Optional) add kernel
 ```
 python -m ipykernel install --user --name <NAME_OF_ENV> --display-name "<NAME_OF_KERNEL>"
 ```
 
 verify:
+* activate env
 ```
 conda activate <NAME_OF_ENV>
 ```
-- python version
+* python version
 ```
 python --version
 ```
-- tensorflow version:
+* tensorflow version:
 ```
 python -c "import tensorflow as tf; print(tf.__version__)"
 ```
-GPU:
+* GPU:
 ```
 python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 ```
 ___
-[<code>tensorflow</code> Compatibility](https://www.tensorflow.org/install/source#gpu) (GPU only) as of: OCT, 22.
+<b> [<code>tensorflow</code> Compatibility](https://www.tensorflow.org/install/source#gpu) (GPU only) as of: OCT, 22.</b>
 
 |        Version        | Python version |  Compiler |  Build tools | cuDNN | CUDA |
 |:---------------------:|:--------------:|:---------:|:------------:|:-----:|:----:|
@@ -140,12 +140,19 @@ ___
 | tensorflow_gpu-1.0.0  | 2.7, 3.3-3.6   | GCC 4.8   | Bazel 0.4.2  | 5.1   | 8    |
 
 
-Check compatibly of card: [GPU compatibility](https://developer.nvidia.com/cuda-gpus) | [Wiki](https://en.wikipedia.org/wiki/CUDA#GPUs_supported)
+>> Check compatibly of card: [GPU compatibility](https://developer.nvidia.com/cuda-gpus) | [Wiki](https://en.wikipedia.org/wiki/CUDA#GPUs_supported)
 
 ___
 ___
-# connect to a jupyter server running in the cloud
+# Connect to a jupyter server running in the cloud
 
+## PyCharm CE
+> Coming Soon.
+
+
+<br>
+
+## VS Code
 > Coming Soon.
 
 ___
