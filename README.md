@@ -84,48 +84,52 @@ python --version && conda --version
 install anaconda and tensorflow:
 ```
 conda create --name <NAME_OF_ENV> anaconda 
+conda activate <NAME_OF_ENV>
 conda install tensorflow-gpu
 ```
+If errored:
+- check channel
+- check package version
 > Note: list all available packages:
-```
-conda search -f tensorflow-gpu
-```
-OR
-```
-conda search -c conda-forge tensorflow-gpu | tail -n5
-```
+> ```
+> conda search -f tensorflow-gpu
+> ```
+> OR
+> ```
+> conda search -c conda-forge tensorflow-gpu | tail -n5
+> ```
+> 
+> You can use list channels:
+> 
+> ```
+> conda config --show channels
+> ```
+> 
+> 
+> This will remove the channel called NOT_WANTED
+> ```
+> conda config --remove channels NOT_WANTED
+> ```
+> 
+> to add channel:
+> 
+> ```
+> conda config --append channels CHANNEL_NAME
+> ```
+> 
+> This will make conda-forge first hit channel. Your anaconda's default channel will get lower priority.
+> 
+> ```
+> conda config --add channels conda-forge 
+> ```
 
-You can use list channels:
-
-```
-conda config --show channels
-```
-
-
-This will remove the channel called NOT_WANTED
-```
-conda config --remove channels NOT_WANTED
-```
-
-to add channel:
-
-```
-conda config --append channels CHANNEL_NAME
-```
-
-This will make conda-forge first hit channel. Your anaconda's default channel will get lower priority.
-
-```
-conda config --add channels sconda-forge 
-```
-
-(Optional) add kernel
+(Optional but recommended) add kernel
 ```
 python -m ipykernel install --user --name <NAME_OF_ENV> --display-name "<NAME_OF_KERNEL>"
 ```
 
 verify:
-* activate env
+* activate env - if not activated already, else skip
 ```
 conda activate <NAME_OF_ENV>
 ```
