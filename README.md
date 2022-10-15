@@ -76,15 +76,49 @@ ___
 ___
 # Create gpu enabled `tensorflow` env  
 
-check requirements:
+check requirements: (conda-forge must be available as a channel.)
 ```
 python --version && conda --version
 ```
 
 install anaconda and tensorflow:
 ```
-conda create --name <NAME_OF_ENV> anaconda tensorflow-gpu
+conda create --name <NAME_OF_ENV> anaconda 
+conda install tensorflow-gpu
 ```
+> Note: list all available packages:
+```
+conda search -f tensorflow-gpu
+```
+OR
+```
+conda search -c conda-forge tensorflow-gpu | tail -n5
+```
+
+You can use list channels:
+
+```
+conda config --show channels
+```
+
+
+This will remove the channel called NOT_WANTED
+```
+conda config --remove channels NOT_WANTED
+```
+
+to add channel:
+
+```
+conda config --append channels CHANNEL_NAME
+```
+
+This will make conda-forge first hit channel. Your anaconda's default channel will get lower priority.
+
+```
+conda config --add channels sconda-forge 
+```
+
 (Optional) add kernel
 ```
 python -m ipykernel install --user --name <NAME_OF_ENV> --display-name "<NAME_OF_KERNEL>"
@@ -155,6 +189,9 @@ ___
 ## VS Code
 > Coming Soon.
 
+
+# Manual install of tensorflow
+> Coming Soon.
 ___
 ___
 
