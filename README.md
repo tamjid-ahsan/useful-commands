@@ -72,6 +72,23 @@ Remove kernel
 ```python
 jupyter kernelspec remove <kernel_name>
 ```
+## Remove envs
+
+backup env (fist activate the env)
+```
+conda env export > <NAME>.yml
+```
+
+remove env (first deactivate the env)
+```
+conda env remove -n <ENV_NAME>
+OR
+conda remove --name <ENV_NAME> --all
+```
+clean
+```
+conda clean --all # https://docs.conda.io/projects/conda/en/latest/commands/clean.html
+```
 ___
 ___
 # Create gpu enabled `tensorflow` env  
