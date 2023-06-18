@@ -88,7 +88,10 @@ conda remove --name <ENV_NAME> --all
 clean
 ```
 conda clean --all # https://docs.conda.io/projects/conda/en/latest/commands/clean.html
+OR
+conda clean -tp  # delete tarballs and unused packages
 ```
+there might be some leftovers (installed by pip), manually remove or do `pip uninstall` before removing env.
 ___
 ___
 # Create gpu enabled `tensorflow` env  
