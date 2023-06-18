@@ -92,6 +92,12 @@ OR
 conda clean -tp  # delete tarballs and unused packages
 ```
 there might be some leftovers (installed by pip), manually remove or do `pip uninstall` before removing env.
+```
+pip freeze | xargs pip uninstall -y
+```
+How it works:
+
+`pip freeze` lists all the installed packages and their versions in your Python environment. The `|` (pipe) operator is used to pass the output of pip freeze to the next command. `xargs` reads the list of packages from the pip freeze output and passes them as arguments to the subsequent command. `pip uninstall -y` uninstalls each package without prompting for confirmation.
 ___
 ___
 # Create gpu enabled `tensorflow` env  
