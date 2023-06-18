@@ -222,3 +222,6 @@ ___
 DISCLAIMER: 
 
 Author does not take any responsibility if you manage to break your coding environment setup. But if that bad luck ever bestow upon you, don't feel hesitant to [contact](http://linkedin.com/in/tamjidahsan/).
+___
+contact: <a href="mailto:tamz888@yahoo.com">tamz888@yahoo.com</a> [<img src="https://raw.githubusercontent.com/tamjid-ahsan/ml-endpoint-docker-gunicorn-flask/main/data/TAlogo1.png" alt="TA" height="3%" width="3%">](http://linkedin.com/in/tamjidahsan/)
+___
