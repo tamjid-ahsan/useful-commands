@@ -43,6 +43,8 @@ conda env export > <env>.yml --no-builds # os agnostic
 OR
 ```python
 conda env export > <env>.yml # os specific
+OR
+conda list -e > requirements.txt
 ```
 Useful command:
 ```python
