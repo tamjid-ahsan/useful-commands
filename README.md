@@ -32,7 +32,8 @@ conda env create -f <env_name>.yml
 ```
 > NOTE: 
 
-create .yml
+>> create .yml
+
 ```python
 # show conda list
 conda env list
