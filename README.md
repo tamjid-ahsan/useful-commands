@@ -43,7 +43,11 @@ conda activate <env>
 
 ```python
 # reproduce accross OS; OS agnostic
-## conda environment to a YAML file without specifying explicit build versions. This allows for greater flexibility in terms of platform and build dependencies, making it easier to share environments across different systems, including Windows, Linux, and macOS.
+## conda environment to a YAML file without specifying 
+    # explicit build versions. This allows for greater 
+    # flexibility in terms of platform and build dependencies, 
+    # making it easier to share environments across different 
+    # systems, including Windows, Linux, and macOS.
 conda env export > <env>.yml --no-builds 
 
 # Another method
