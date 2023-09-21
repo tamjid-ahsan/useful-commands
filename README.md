@@ -38,7 +38,12 @@ create .yml
 conda env list
 # activate env first
 conda activate <env>
-conda env export > <env>.yml --no-builds # os agnostic
+############################################
+conda env export > <env>.yml --no-builds # os agnostic; onda environment to a YAML file without specifying explicit build versions. This allows for greater flexibility in terms of platform and build dependencies, making it easier to share environments across different systems, including Windows, Linux, and macOS.
+## Another method
+conda env export --name <env_name> --from-history --<env_file>.yml # environment file that can produce environments that are reproducibile across Mac OS, Windows, and Linux, just including those packages into the environment file that have been specifically installed.
+
+
 ```
 OR
 ```python
