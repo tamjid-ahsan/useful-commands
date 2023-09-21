@@ -51,7 +51,10 @@ conda activate <env>
 conda env export > <env>.yml --no-builds 
 
 # Another method
-## environment file that can produce environments that are reproducibile across Mac OS, Windows, and Linux, just including those packages into the environment file that have been specifically installed.
+## environment file that can produce environments that 
+    # are reproducibile across Mac OS, Windows, and Linux, 
+    # just including those packages into the environment 
+    # file that have been specifically installed.
 conda env export --name <env_name> --from-history --<env_file>.yml 
 ```
 OR
