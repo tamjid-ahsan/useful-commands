@@ -2,7 +2,7 @@ NOTE:
 
 [1] Text inside <> refers to respective names
 
-[2] This is tested on a Windows 10 Pro machine using WSL2 (Windows Subsystem for Linux version 2) terminal of Ubuntu-20.04 Virtual Machine, git-bash version 2.30.0.windows.1, and Microsoft Visual Studio Code version 1.58.2.
+[2] This is tested on a Windows 10 Pro machine using powershell, WSL2 (Windows Subsystem for Linux version 2) terminal of Ubuntu-20.04, git-bash version 2.30.0.windows.1, and Microsoft Visual Studio Code version 1.58.2.
 ___
 ___
 # Installing Environment Requirements
@@ -48,6 +48,8 @@ conda env export --name <env_name> --from-history --<env_file>.yml # environment
 OR
 ```python
 conda env export > <env>.yml # os specific
+OR
+conda list -e > requirements.txt
 ```
 Useful command:
 ```python
