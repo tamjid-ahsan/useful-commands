@@ -56,6 +56,8 @@ conda env export > <env>.yml --no-builds
     # file that have been specifically installed.
 conda env export --name <env_name> --from-history --<env_file>.yml 
 ```
+>>> [further reading: "conda-for-data-scientists"](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/04-sharing-environments/index.html)
+
 OR
 ```python
 conda env export > <env>.yml # os specific
