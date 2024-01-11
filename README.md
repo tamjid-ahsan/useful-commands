@@ -73,6 +73,9 @@ conda create --name py35
 conda activate py35
 ## UNIX-like & macOS: 
 source activate py35
+
+# to see all env size 
+du -sh ~/<mambaforge-pypy3>/envs/* # use `anaconda3` for conda or `mambaforge-pypy3` for mamba appropriately
 ```
 
 ## Add kernel
