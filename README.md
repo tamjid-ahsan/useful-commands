@@ -59,15 +59,18 @@ conda env export --name <env_name> --from-history --<env_file>.yml
 >>> [further reading: "conda-for-data-scientists"](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/04-sharing-environments/index.html)
 
 OR
-```python
+```bash
 conda env export > <env>.yml # os specific
 OR
 conda list -e > requirements.txt
 ```
+
 Useful command:
-```python
+
+```bash
 # Create a new environment named py35
 conda create --name py35
+
 # Activate the new environment to use it
 ## WINDOWS: 
 conda activate py35
@@ -76,6 +79,14 @@ source activate py35
 
 # to see all env size 
 du -sh ~/<mambaforge-pypy3>/envs/* # use `anaconda3` for conda or `mambaforge-pypy3` for mamba appropriately
+
+# or use this bash command
+du -sh $(conda info | grep "active env location" | cut -d ':' -f 2 | awk -F: -vOFS=: '{$1 = $1 "/envs/*"; print}' | sed -e 's/^\s*//')
+
+# or this fish command
+du -h --max-depth 1 (conda info | grep "active env location" | cut -d ':' -f 2 | awk -F: -vOFS=: '{$1 = $1 "/envs"; print}' | sed -e 's/^\s*//')
+
+
 ```
 
 ## Add kernel
