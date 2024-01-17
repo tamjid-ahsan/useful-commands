@@ -1,3 +1,10 @@
+# Contact info:
+- ![linkd](https://raw.githubusercontent.com/dmhendricks/signature-social-icons/master/icons/round-flat-filled/35px/linkedin.png) LinkdIn: [tamjidahsan](http://linkedin.com/in/tamjidahsan/)
+- ![](https://raw.githubusercontent.com/dmhendricks/signature-social-icons/master/icons/round-flat-filled/35px/mail.png) email: [tamjid@inneed.cloud](tamjid@inneed.cloud) # change this
+___
+[![git](https://raw.githubusercontent.com/dmhendricks/signature-social-icons/master/icons/round-flat-filled/35px/github.png)](https://github.com/tamjid-ahsan) [![medium](https://raw.githubusercontent.com/dmhendricks/signature-social-icons/master/icons/round-flat-filled/35px/medium.png)](http://tamjida.medium.com/) [![www](https://raw.githubusercontent.com/dmhendricks/signature-social-icons/master/icons/round-flat-filled/35px/www.png)](https://tamjidahsan.vercel.app/)
+___
+
 NOTE: 
 
 [1] Text inside <> refers to respective names
