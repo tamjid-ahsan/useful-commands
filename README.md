@@ -83,7 +83,7 @@ du -sh ~/<mambaforge-pypy3>/envs/* # use `anaconda3` for conda or `mambaforge-py
 # or use this bash command
 du -sh $(conda info | grep "active env location" | cut -d ':' -f 2 | awk -F: -vOFS=: '{$1 = $1 "/envs/*"; print}' | sed -e 's/^\s*//')
 
-# or this fish command
+# or this fish command !!! needs debug
 du -h --max-depth 1 (conda info | grep "active env location" | cut -d ':' -f 2 | awk -F: -vOFS=: '{$1 = $1 "/envs"; print}' | sed -e 's/^\s*//')
 
 
