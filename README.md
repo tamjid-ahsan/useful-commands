@@ -61,7 +61,7 @@ conda env export > <env>.yml --no-builds
     # are reproducibile across Mac OS, Windows, and Linux, 
     # just including those packages into the environment 
     # file that have been specifically installed.
-conda env export --name <env_name> --from-history --<env_file>.yml 
+conda env export --name <env_name> --from-history > <env_file>.yml 
 ```
 >>> [further reading: "conda-for-data-scientists"](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/04-sharing-environments/index.html)
 
