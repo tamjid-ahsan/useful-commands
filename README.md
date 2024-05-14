@@ -7,13 +7,13 @@ ___
 SECTIONS:
 
 1. Conda
-  1.1. `env` management
-  1.1. `tensorflow`
+    - `env` management
+    - `tensorflow`
 2. Connect to a jupyter server running in the cloud (`EC2`)
 3. `Snowflake`
 4. `NVM`
 
-NOTE: 
+NOTE:
 
 [1] Text inside <> refers to respective names
 
