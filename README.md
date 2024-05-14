@@ -4,25 +4,38 @@
 ___
 [![git](https://raw.githubusercontent.com/dmhendricks/signature-social-icons/master/icons/round-flat-filled/35px/github.png)](https://github.com/tamjid-ahsan) [![medium](https://raw.githubusercontent.com/dmhendricks/signature-social-icons/master/icons/round-flat-filled/35px/medium.png)](http://tamjida.medium.com/) [![www](https://raw.githubusercontent.com/dmhendricks/signature-social-icons/master/icons/round-flat-filled/35px/www.png)](https://tamjidahsan.vercel.app/)
 ___
+SECTIONS:
+
+1. Conda
+  1.1. `env` management
+  1.1. `tensorflow`
+2. Connect to a jupyter server running in the cloud (`EC2`)
+3. `Snowflake`
+4. `NVM`
 
 NOTE: 
 
 [1] Text inside <> refers to respective names
 
-[2] This is tested on a Windows 10 Pro machine using powershell, WSL2 (Windows Subsystem for Linux, version 2) terminal of Ubuntu-20.04, git-bash version 2.30.0.windows.1, and Microsoft Visual Studio Code version 1.58.2.
+[2] This is tested on a Windows 11 Pro machine using powershell, WSL2 (Windows Subsystem for Linux, version 2) terminal of Ubuntu-20.04, git-bash version 2.30.0.windows.1, and Microsoft Visual Studio Code version 1.58.2., and latest compatible version of `MacOS` in MacBook Pro 14 inch - M3 Pro (Late 2023)
 ___
 ___
 # Installing Environment Requirements
 
 If using pip: (must have valid txt file)
+
 ```python
 pip install -r <requirements>.txt
 ```
+
 If using conda:
+
 ```python
 conda create --name <env_name> --file <requirements>.txt
 ```
+
 > NOTE: Creating requirement file:
+
 ```python
 # using pip
 pip freeze > <requirements_pip>.txt
@@ -31,13 +44,17 @@ conda list --export > <requirements_conda>.txt
 ```
 ___
 
-# Environment management using Anaconda
+# Environment management using `Anaconda`
+
 ## Install saved env
+
 create new env from .yml
+
 ```python
 conda env create -f <env_name>.yml
 ```
-> NOTE: 
+
+> NOTE:
 
 >> create .yml
 
@@ -47,7 +64,9 @@ conda env list
 # activate env first
 conda activate <env>
 ```
-> reproduce accross OS; OS agnostic
+
+> reproduce across OS; OS agnostic
+
 ```python
 ## conda environment to a YAML file without specifying 
     # explicit build versions. This allows for greater 
@@ -58,14 +77,16 @@ conda env export > <env>.yml --no-builds
 
 # Another method
 ## environment file that can produce environments that 
-    # are reproducibile across Mac OS, Windows, and Linux, 
+    # are reproducible across Mac OS, Windows, and Linux, 
     # just including those packages into the environment 
     # file that have been specifically installed.
 conda env export --name <env_name> --from-history > <env_file>.yml 
 ```
+
 >>> [further reading: "conda-for-data-scientists"](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/04-sharing-environments/index.html)
 
 OR
+
 ```bash
 conda env export > <env>.yml # os specific
 OR
@@ -97,12 +118,15 @@ du -h --max-depth 1 (conda info | grep "active env location" | cut -d ':' -f 2 |
 ```
 
 ## Add kernel
+
 List all kernels available
+
 ```python
 jupyter kernelspec list
 ```
 
 Add kernel
+
 ```python
 python -m ipykernel install --user --name <env_name> --display-name "<kernel_name>"
 ```
@@ -110,32 +134,38 @@ python -m ipykernel install --user --name <env_name> --display-name "<kernel_nam
 NOTE:
 
 Remove kernel
+
 ```python
 jupyter kernelspec remove <kernel_name>
 ```
+
 ## Remove envs
 
 backup env (fist activate the env)
-```
+```sh
 conda env export > <NAME>.yml
 ```
 
 remove env (first deactivate the env)
-```
+
+```sh
 conda env remove -n <ENV_NAME>
 OR
 conda remove --name <ENV_NAME> --all
 ```
+
 clean
-```
+```sh
 conda clean --all # https://docs.conda.io/projects/conda/en/latest/commands/clean.html
 OR
 conda clean -tp  # delete tarballs and unused packages
 ```
+
 there might be some leftovers (installed by pip), manually remove or do `pip uninstall` before removing env.
-```
+```sh
 pip freeze | xargs pip uninstall -y
 ```
+
 How it works:
 
 `pip freeze` lists all the installed packages and their versions in your Python environment. The `|` (pipe) operator is used to pass the output of pip freeze to the next command. `xargs` reads the list of packages from the pip freeze output and passes them as arguments to the subsequent command. `pip uninstall -y` uninstalls each package without prompting for confirmation.
@@ -264,9 +294,89 @@ ___
 # Manual install of tensorflow
 > Coming Soon.
 ___
+
+# Node via `NVM`
+
+## Install Node
+
+```bash
+nvm install <node_version>      // Install a specific Node version
+nvm install node                // Install latest Node release (Current)
+nvm install --lts               // Install latest LTS release of NodeJS
+nvm install-latest-npm          // Install latest NPM release only
+```
+
+## List Available Node Releases
+
+```bash
+nvm ls-remote
+nvm ls-remote | grep -i "latest"        
+nvm ls-remote | grep -i "<node_version>"
+```
+
+## List Installed Nodes
+
+```sh
+nvm list node                   // Lists installed Node versions
+nvm list  (or)  nvm ls          // Lists installed Node versions with additional release info
+```
+
+## Switch To Another Node Version
+
+```sh
+nvm use node                      // Switch to the latest available Node version
+nvm use <node_version_or_alias>  // Switch to a specific version
+nvm use --lts                    // Switch to the latest LTS Node version
+```
+
+## Verifying Node Version
+
+```sh
+node -v  (or)  node --version
+npm -v   (or)  npm --version
+nvm -v   (or)  nvm --version
+```
+
+## Set Alias
+
+```sh
+nvm alias default node                  // Always defaults to the latest available node version on a shell
+nvm alias default <node_version>        // Set default node version on a shell
+nvm alias <alias_name> <node_version>   // Set user-defined alias to Node versions 
+
+nvm unalias <alias_name>                // Deletes the alias named <alias_name>
+```
+
+## Path to Node Executable
+
+```sh
+nvm which <installed_node_version>      // path to the executable where a specific Node version is installed
+```
+
+## Uninstall Specific Node Version
+
+```sh
+nvm uninstall <node_version>    // Uninstall a specific Node version
+nvm uninstall --lts             // Uninstall the latest LTS release of Node
+nvm uninstall node              // Uninstall latest (Current) release of Node
+```
+
+## Uninstall NVM
+
+```sh
+To remove, delete, or uninstall nvm, just remove the $NVM_DIR folder (usually ~/.nvm)
+```
+
+<br>
+
 ___
 
-DISCLAIMER: 
+[source](https://gist.github.com/chranderson/b0a02781c232f170db634b40c97ff455)
+___
+
+___
+
+DISCLAIMER:
 
 Author does not take any responsibility if you manage to break your coding environment setup. But if that bad luck ever bestow upon you, don't feel hesitant to [contact](http://linkedin.com/in/tamjidahsan/).
 ___
